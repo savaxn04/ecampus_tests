@@ -16,8 +16,14 @@ public class HomePage extends BasePage {
     }
 
     public boolean clickToCurrentVersionButton(){
-        waitForElementToBeClickable(toCurrentVersionButton);
         toCurrentVersionButton.click();
-        return driver.getCurrentUrl().contains("https://campus.kpi.ua/student/index.php?session=");
+        waitForRedirection("https://campus.kpi.ua/");
+        return driver.getCurrentUrl().equals("https://campus.kpi.ua/");
+    }
+
+    public boolean loginSuccess() {
+        String campusHomeUrl = "https://ecampus.kpi.ua/home";
+        waitForRedirection(campusHomeUrl);
+        return campusHomeUrl.equals(getCurrentUrl());
     }
 }

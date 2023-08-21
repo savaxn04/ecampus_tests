@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.testng.ISuiteListener;
 import org.testng.ITestContext;
 import org.testng.annotations.*;
+import org.testng.asserts.SoftAssert;
 
 import java.time.Duration;
 
@@ -13,8 +14,13 @@ public class BaseTestRunnerUI {
 
     protected WebDriver driver;
     protected Browsers browsers = new Browsers();
-
+    protected SoftAssert softAssert;
     protected static final TestValueProvider valueProvider = new TestValueProvider();
+
+    @BeforeMethod
+    public void initSoftAssert() {
+        softAssert = new SoftAssert();
+    }
 
     @Parameters("browser")
     @BeforeClass(description = "Init Driver.")
