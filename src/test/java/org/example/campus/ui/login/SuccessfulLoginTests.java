@@ -4,6 +4,7 @@ import org.example.campus.utils.runners.BaseTestRunnerUI;
 import org.example.pages.HomePage;
 import org.example.pages.LoginPage;
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class SuccessfulLoginTests extends BaseTestRunnerUI {

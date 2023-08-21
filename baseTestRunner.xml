@@ -3,10 +3,10 @@
 <suite name="BaseTestRunner">
     <test name="Test1">
         <classes>
-            <!-- <class name="org.example.campus.ui.login.ButtonsTest" />
-              <class name="org.example.campus.ui.login.SuccessfulLoginTests" /> -->
-             <class name="org.example.campus.ui.login.UnsuccessfulLoginTests" />
-             <!-- <class name="org.example.campus.ui.recoveryPassword.ButtonsTests" /> -->
+            <class name="org.example.campus.ui.login.ButtonsTest" />
+            <class name="org.example.campus.ui.login.UnsuccessfulLoginTests" />
+             <class name="org.example.campus.ui.login.SuccessfulLoginTests" />
+             <class name="org.example.campus.ui.recoveryPassword.ButtonsTests" />
         </classes>
     </test>
 </suite>

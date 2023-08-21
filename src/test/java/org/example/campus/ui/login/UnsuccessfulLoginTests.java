@@ -3,6 +3,7 @@ package org.example.campus.ui.login;
 import org.example.campus.utils.runners.BaseTestRunnerUI;
 import org.example.pages.LoginPage;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
@@ -14,9 +15,8 @@ public class UnsuccessfulLoginTests extends BaseTestRunnerUI {
         driver.navigate().refresh();
     }
 
-
     @Test(priority = 1)
-    public void testLoginWithoutData() throws InterruptedException {
+    public void testLoginWithoutData() {
         LoginPage loginPage = new LoginPage(driver);
         loginPage.clickSubmitButton();
         String errorMessage = loginPage.getErrorMessage();

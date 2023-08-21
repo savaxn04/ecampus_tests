@@ -9,7 +9,7 @@ import org.testng.annotations.*;
 
 import java.time.Duration;
 
-public class BaseTestRunnerUI implements ISuiteListener {
+public class BaseTestRunnerUI {
 
     protected WebDriver driver;
     protected Browsers browsers = new Browsers();
@@ -17,7 +17,7 @@ public class BaseTestRunnerUI implements ISuiteListener {
     protected static final TestValueProvider valueProvider = new TestValueProvider();
 
     @Parameters("browser")
-    @BeforeSuite(description = "Init Driver.")
+    @BeforeClass(description = "Init Driver.")
     protected void initDriver(@Optional("chrome")String browser,ITestContext context) {
         WebDriverManager.chromedriver().setup();
         driver = browsers.setUpBrowser(browser);
@@ -28,7 +28,7 @@ public class BaseTestRunnerUI implements ISuiteListener {
     }
 
     @Parameters("browser")
-    @AfterSuite
+    @AfterClass
     public void closeDriver() {
         if (driver != null) {
             driver.quit();
