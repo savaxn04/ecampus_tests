@@ -26,25 +26,23 @@ public class Browsers {
      */
     @Parameters("browser")
     public WebDriver setUpBrowser(String browser) {
-
         switch (browser) {
-            case "chrome":
+            case "chrome" -> {
                 ChromeOptions chromeOptions = new ChromeOptions();
                 chromeOptions.addArguments("https://ecampus.kpi.ua/login");
                 driver = new ChromeDriver(chromeOptions);
-                break;
-            case "edge":
+            }
+            case "edge" -> {
                 EdgeOptions edgeOptions = new EdgeOptions();
-                edgeOptions.addArguments(REMOTE_CONTROL);
+                edgeOptions.addArguments("https://ecampus.kpi.ua/login");
                 driver = new EdgeDriver(edgeOptions);
-                break;
-            case "firefox":
+            }
+            case "firefox" -> {
                 FirefoxOptions firefoxOptions = new FirefoxOptions();
-                firefoxOptions.addArguments(REMOTE_CONTROL);
+                firefoxOptions.addArguments("https://ecampus.kpi.ua/login");
                 driver = new FirefoxDriver(firefoxOptions);
-                break;
-            default:
-                throw new RuntimeException("Invalid browser name " + browser);
+            }
+            default -> throw new RuntimeException("Invalid browser name " + browser);
         }
 
         return driver;
