@@ -3,7 +3,7 @@ package org.example.campus.utils.runners;
 import org.example.pages.LoginPage;
 import org.testng.annotations.BeforeClass;
 
-public class LoginWithStudentRunner extends BaseTestRunnerUI{
+public class LoginAsStudentRunner extends BaseTestRunnerUI{
 
     /**
      *This method is a precondition for tests for which we need to be registered as "User"

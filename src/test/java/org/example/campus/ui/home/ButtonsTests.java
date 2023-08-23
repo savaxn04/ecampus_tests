@@ -1,12 +1,12 @@
 package org.example.campus.ui.home;
 
-import org.example.campus.utils.runners.LoginWithStudentRunner;
+import org.example.campus.utils.runners.LoginAsStudentRunner;
 import org.example.pages.HomePage;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class ButtonsTests extends LoginWithStudentRunner {
+public class ButtonsTests extends LoginAsStudentRunner {
 
     @BeforeMethod
     void refreshPage(){
