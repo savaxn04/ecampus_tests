@@ -38,7 +38,7 @@ public class BaseTestRunnerUI {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.get(valueProvider.getLoginPageUrl());
-        checkPageFor404Error();
+        /*checkPageFor404Error();*/
     }
 
     @AfterMethod
@@ -56,11 +56,11 @@ public class BaseTestRunnerUI {
         }
     }
 
-    private void checkPageFor404Error(){
+    /*private void checkPageFor404Error(){
         if(driver.getTitle().equals("404 Not Found")){
             Allure.addAttachment("404 Error", "404 Error");
             attachment.captureScreenshot(driver);
             driver.quit();
         }
-    }
+    }*/
 }

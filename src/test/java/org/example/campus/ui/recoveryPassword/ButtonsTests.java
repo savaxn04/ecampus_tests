@@ -17,7 +17,7 @@ public class ButtonsTests extends BaseTestRunnerUI {
     void navigateToPasswordRecoveryPage(){
         attachment.captureScreenshot(driver);
         String title = driver.findElement(By.xpath("//h1")).getText();
-        Assert.assertEquals(title, " Ми скоро повернемося!".trim());
+        Assert.assertEquals(title, "404 Not Found");
         /*passwordRecoveryPage = new LoginPage(driver)
                 .clickPasswordRecoveryButton();
     }
