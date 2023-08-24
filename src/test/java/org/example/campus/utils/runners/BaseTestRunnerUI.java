@@ -1,7 +1,9 @@
 package org.example.campus.utils.runners;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import io.qameta.allure.Allure;
 import io.qameta.allure.Attachment;
+import org.example.campus.utils.Attachments;
 import org.example.campus.utils.TestValueProvider;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -11,6 +13,7 @@ import org.testng.ITestResult;
 import org.testng.annotations.*;
 import org.testng.asserts.SoftAssert;
 
+import java.io.ByteArrayInputStream;
 import java.time.Duration;
 
 public class BaseTestRunnerUI {
@@ -18,6 +21,7 @@ public class BaseTestRunnerUI {
     protected WebDriver driver;
     protected Browsers browsers = new Browsers();
     protected SoftAssert softAssert;
+    protected Attachments attachment = new Attachments();
     protected static final TestValueProvider valueProvider = new TestValueProvider();
 
     @BeforeMethod
@@ -40,7 +44,7 @@ public class BaseTestRunnerUI {
     @AfterMethod
     public void afterTestMethod(ITestResult result,ITestContext context) {
         if (result.getStatus() == ITestResult.FAILURE) {
-            captureScreenshot(driver);
+            attachment.captureScreenshot(driver);
         }
     }
 
@@ -54,14 +58,9 @@ public class BaseTestRunnerUI {
 
     private void checkPageFor404Error(){
         if(driver.getTitle().equals("404 Not Found")){
-            System.out.println("Page has 404 Not Found");
-            captureScreenshot(driver);
+            Allure.addAttachment("404 Error", "404 Error");
+            attachment.captureScreenshot(driver);
             driver.quit();
         }
-    }
-
-    @Attachment(value = "Screenshot", type = "image/png")
-    public byte[] captureScreenshot(WebDriver driver) {
-        return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
     }
 }
