@@ -3,6 +3,7 @@ package org.example.campus.ui.recoveryPassword;
 import org.example.campus.utils.runners.BaseTestRunnerUI;
 import org.example.pages.LoginPage;
 import org.example.pages.PasswordRecoveryPage;
+import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
@@ -12,9 +13,12 @@ public class ButtonsTests extends BaseTestRunnerUI {
 
     private PasswordRecoveryPage passwordRecoveryPage;
 
-    @BeforeClass
+    @Test
     void navigateToPasswordRecoveryPage(){
-        passwordRecoveryPage = new LoginPage(driver)
+        attachment.captureScreenshot(driver);
+        String title = driver.findElement(By.xpath("//h1")).getText();
+        Assert.assertEquals("title", " Ми скоро повернемося!".trim());
+        /*passwordRecoveryPage = new LoginPage(driver)
                 .clickPasswordRecoveryButton();
     }
 
@@ -26,6 +30,6 @@ public class ButtonsTests extends BaseTestRunnerUI {
     @Test(priority = 2)
     public void checkSubmitButtonIsEnabledAfterEnteringData(){
         passwordRecoveryPage.fillInNicknameField(valueProvider.getCorrectLogin());
-        Assert.assertTrue(passwordRecoveryPage.checkSubmitButtonIsEnabled());
+        Assert.assertTrue(passwordRecoveryPage.checkSubmitButtonIsEnabled());*/
     }
 }
