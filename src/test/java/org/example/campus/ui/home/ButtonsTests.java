@@ -9,12 +9,12 @@ import org.testng.annotations.Test;
 public class ButtonsTests extends LoginAsStudentRunner {
 
     @BeforeMethod
-    void refreshPage(){
+    void refreshPage() {
         driver.navigate().refresh();
     }
 
     @Test
-    public void testRedirectionToCurrentSiteVersionByClickingButton(){
+    public void testRedirectionToCurrentSiteVersionByClickingButton() {
         HomePage homePage = new HomePage(driver);
         Assert.assertTrue(homePage.clickToCurrentVersionButton());
     }

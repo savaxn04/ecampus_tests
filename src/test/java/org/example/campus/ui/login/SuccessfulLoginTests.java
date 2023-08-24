@@ -11,9 +11,9 @@ public class SuccessfulLoginTests extends BaseTestRunnerUI {
     public void testLoginWithCorrectData() {
         LoginPage loginPage = new LoginPage(driver);
         boolean loginSuccess = loginPage.fillInNicknameField(valueProvider.getCorrectLogin())
-                                    .fillInPasswordField(valueProvider.getCorrectPassword())
-                                    .clickSubmitButton()
-                                    .loginSuccess();
+                .fillInPasswordField(valueProvider.getCorrectPassword())
+                .clickSubmitButton()
+                .loginSuccess();
 
         Assert.assertTrue(loginSuccess);
     }

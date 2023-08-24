@@ -1,7 +1,6 @@
 package org.example.campus.ui.login;
 
 import org.example.campus.utils.runners.BaseTestRunnerUI;
-import org.example.pages.HomePage;
 import org.example.pages.LoginPage;
 import org.example.pages.PasswordRecoveryPage;
 import org.testng.Assert;
@@ -15,6 +14,6 @@ public class ButtonsTest extends BaseTestRunnerUI {
         PasswordRecoveryPage passwordRecoveryPage = loginPage.clickPasswordRecoveryButton();
         String campusHomeUrl = "https://ecampus.kpi.ua/restore-password";
         passwordRecoveryPage.waitForRedirection(campusHomeUrl);
-        Assert.assertEquals(passwordRecoveryPage.getCurrentUrl(), campusHomeUrl);
+        Assert.assertEquals(passwordRecoveryPage.getCurrentUrl(),campusHomeUrl);
     }
 }

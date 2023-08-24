@@ -19,8 +19,9 @@ public class Browsers {
     WebDriver driver = null;
 
     /**
-     *This method accepts the name of the browser as a parameter and,
+     * This method accepts the name of the browser as a parameter and,
      * depending on this name, launches the browser we need
+     *
      * @param browser extracts the name of the browser from the xml file using the {@link Parameters} annotation
      * @return the driver of the selected browser
      */
